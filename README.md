@@ -1,6 +1,6 @@
 <a href="https://react.dev/"> <img src="https://i.ibb.co/4NfqXRf/Clipboard-removebg-preview-1.png" width="500em"></img></a>
 
-# Standalone React
+# Standalone React - Webpack Version
 
 Standalone React v 1.0.3
 
