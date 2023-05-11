@@ -4,4 +4,4 @@ import ReactApp from "./react-folder/react";
 import Start from "./start";
 
 const DOM = ReactDOM.createRoot(document.getElementById('root'))
-DOM.render(<ReactApp />)
+DOM.render(<Start />)

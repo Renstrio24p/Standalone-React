@@ -2,7 +2,7 @@
   "name": "standalone-react",
   "version": "1.0.2",
   "description": "A new react app without CRA",
-  "homepage": "https://github.com/Renstrio24p/Standalone-React-Lite",
+  "homepage": "",
   "scripts": {
     "start": "webpack-dev-server .",
     "build": "webpack .",
@@ -10,7 +10,7 @@
     "test": "test",
     "netlify": "netlify init",
     "vercel": "vercel",
-    "watch" : "webpack -w"
+    "watch": "webpack -w"
   },
   "author": "",
   "license": "ISC",
