@@ -13,7 +13,7 @@ export default function ReactApp() {
                              <img className="react-img"></img>
                              <span className='react-js'> React JS.</span> 
                          </p>
-                         <p className="react-title">Webpack Version.</p>
+                         <p className="react-title">Webpack Version. supports Codespace</p>
                     </div>
                     <a href="https://webpack.js.org/"><img className='webpack'></img></a>
                 </div>
