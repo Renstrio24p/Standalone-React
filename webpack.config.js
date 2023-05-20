@@ -9,7 +9,7 @@ module.exports={
 
         path: path.resolve(__dirname, "./src"),
         
-        filename: "index.react.jsx"
+        filename: "index.react.js"
     },
     
     target: "web",
