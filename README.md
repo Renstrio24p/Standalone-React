@@ -40,13 +40,16 @@ To start Standalone React now run this command to install dependencies inside.
 
     use this template
 
+    or
+
+    $ npm i
+
+
 commands available
 
 update to latest Dependencies on package.json - when notification pops out just click "Overwrite" to save the latest dependencies
 
     $ npm run update
-
-   
 
 Building your changes
      
@@ -62,8 +65,10 @@ To run and monitor your changes while coding, use "Live server extension"
 
 To run your React Server with "Live Server Extension"
 
+right click your "index.html" file and Open with Live server then run this command.
+
      $ npm run live
-    
+
 locate the "Start.jsx" and start your coding with react.
 
      I hope you like my work for this template.
