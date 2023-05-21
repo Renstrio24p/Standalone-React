@@ -42,13 +42,17 @@ To start Standalone React now run this command to install dependencies inside.
 
 commands available
 
+update to latest Dependencies on package.json
+
+    $ npm run update
+
 Building your changes
      
      $ npm run build
 
 Start your React Server
     
-     $ npm run dev
+     $ npm run start
 
 To run and monitor your changes while coding, use "Live server extension"
 
@@ -56,7 +60,7 @@ To run and monitor your changes while coding, use "Live server extension"
 
 To run your React Server with "Live Server Extension"
 
-     $ npm start
+     $ npm run live
     
 locate the "Start.jsx" and start your coding with react.
 
