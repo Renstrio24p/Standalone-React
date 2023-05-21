@@ -4,10 +4,12 @@
   "description": "A new react app without CRA",
   "main": "./src/index.jsx",
   "scripts": {
-    "dev": "webpack-dev-server .",
+    "start": "webpack-dev-server .",
     "build": "webpack ./",
     "test": "test",
-    "start": "webpack --watch"
+    "live": "webpack --watch",
+    "sdreact": "npm i",
+    "update": "npx npm-check-updates -u"
   },
   "devDependencies": {
     "@babel/core": "^7.17.2",
