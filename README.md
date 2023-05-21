@@ -42,9 +42,11 @@ To start Standalone React now run this command to install dependencies inside.
 
 commands available
 
-update to latest Dependencies on package.json
+update to latest Dependencies on package.json - when notification pops out just click "Overwrite" to save the latest dependencies
 
     $ npm run update
+
+   
 
 Building your changes
      
