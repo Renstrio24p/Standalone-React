@@ -5,7 +5,7 @@
   "main": "./src/index.jsx",
   "scripts": {
     "dev": "webpack-dev-server .",
-    "build": "webpack .",
+    "build": "webpack ./",
     "test": "test",
     "start": "webpack --watch"
   },
@@ -21,7 +21,6 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-jest": "^26.1.0",
-    "gh-pages": "^5.0.0",
     "webpack": "^5.68.0",
     "webpack-cli": "^4.9.2",
     "webpack-dev-server": "^4.7.4"
