@@ -7,7 +7,7 @@ module.exports={
     entry: "./src/index.jsx", 
     output: {
 
-        path: path.resolve(__dirname, "./runtime"),
+        path: path.resolve(__dirname, "./dist"),
         
         filename: "index.react.js"
     },
