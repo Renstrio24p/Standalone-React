@@ -1,4 +1,4 @@
-<a href="https://react.dev/"> <img src="https://i.ibb.co/4NfqXRf/Clipboard-removebg-preview-1.png" width="600em"></img></a>
+<img src="https://i.ibb.co/4NfqXRf/Clipboard-removebg-preview-1.png" width="600em"></img>
 
 # Standalone React Github - Codespace
 
