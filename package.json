@@ -1,6 +1,6 @@
 {
-  "name": "new-react-app",
-  "version": "1.0.0",
+  "name": "standalone-react-webpack",
+  "version": "1.0.5",
   "description": "A new react app without CRA",
   "main": "./src/index.jsx",
   "scripts": {
