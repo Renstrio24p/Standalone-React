@@ -1,4 +1,4 @@
-<img src="https://i.ibb.co/4NfqXRf/Clipboard-removebg-preview-1.png" width="600em"></img>
+<img src="https://i.ibb.co/4NfqXRf/Clipboard-removebg-preview-1.png" width="500em"></img>
 
 # Standalone React Github - Codespace
 
