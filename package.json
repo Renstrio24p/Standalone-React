@@ -1,6 +1,6 @@
 {
-  "name": "standalone-react-webpack",
-  "version": "1.0.5",
+  "name": "new-react-app",
+  "version": "1.0.0",
   "description": "A new react app without CRA",
   "main": "./src/index.jsx",
   "scripts": {
@@ -25,6 +25,8 @@
     "eslint-plugin-jest": "^27.2.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.1",
+    "sass": "^1.62.1",
+    "sass-loader": "^13.3.1",
     "style-loader": "^3.3.3",
     "webpack": "^5.84.1",
     "webpack-cli": "^5.1.1",
