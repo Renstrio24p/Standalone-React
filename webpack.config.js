@@ -1,5 +1,5 @@
-const path = require("path");
 
+const path = require("path");
 
 module.exports={
    
@@ -7,14 +7,14 @@ module.exports={
     entry: "./src/index.jsx", 
     output: {
 
-        path: path.resolve(__dirname, "./runtime"),
+        path: path.resolve(__dirname, "runtime/"),
         
-        filename: "index.react.js"
+        filename: "index.js"
     },
     
     target: "web",
     devServer: {
-        port: "9500",
+        port: "0",
         
         static: ["./"],
        
@@ -35,7 +35,11 @@ module.exports={
                 test: /\.(js|jsx)$/,   
                 exclude: /node_modules/,
                 use:  'babel-loader'
-            }
-        ]
-    }
+            },
+            {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
+              }
+        ],
+    },
 }
