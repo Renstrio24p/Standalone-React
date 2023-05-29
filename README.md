@@ -4,6 +4,11 @@
 
 Standalone React v 1.0.4 - Webpack version
 
+version update 1.0.5
+
+    - CSS Loader
+    - SASS/SCSS Loader
+
 version update 1.0.4
 
     - auto reload support with live server extension
