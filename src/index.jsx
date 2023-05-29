@@ -5,4 +5,8 @@ import Start from "./start";
 import './index.css';
 
 const DOM = ReactDOM.createRoot(document.getElementById('root'))
-DOM.render(<ReactApp />)
+DOM.render(
+    <React.StrictMode>
+        <ReactApp />
+    </React.StrictMode>
+)
