@@ -1,8 +1,8 @@
-<a href="https://react.dev/"> <img src="https://i.ibb.co/4NfqXRf/Clipboard-removebg-preview-1.png" width="500em"></img></a>
+<a href="https://react.dev/"> <img src="https://i.ibb.co/4NfqXRf/Clipboard-removebg-preview-1.png" width="600em"></img></a>
 
 # Standalone React Github - Codespace
 
-Standalone React v 1.0.4 - Webpack version
+Standalone React v 1.0.5 - Webpack version
 
 version update 1.0.5
 
