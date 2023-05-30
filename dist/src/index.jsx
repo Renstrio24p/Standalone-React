@@ -7,6 +7,6 @@ import './index.css'
 const DOM = ReactDOM.createRoot(document.getElementById('root'))
 DOM.render (
     <React.StrictMode>
-        <Start />
+        <ReactApp />
     </React.StrictMode>
 )
