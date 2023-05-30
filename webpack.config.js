@@ -11,15 +11,11 @@ module.exports = {
     clean: true,
   },
   target: 'web',
-  watch: true,
-  watchOptions: {
-    aggregateTimeout: 200,
-    poll: 500,
-  },
   devServer: {
     port: '5500',
     static: {
-      directory: path.join(__dirname, 'src')
+      directory: path.join(__dirname, 'src'),
+      watch: true
 },
     open: true,
     hot: true,
