@@ -1,0 +1,147 @@
+.react-content {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.react-body {
+    background-image: url('./reactjs-icon2.png');
+    background-repeat: no-repeat;
+    background-position-x: right;
+    margin-right: -100px;
+    background-position-y: center;
+    background-size: 20vh;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(33, 39, 43);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.react-head {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.react-head {
+    padding: 20% 10px 20% 10px;
+}
+
+.react {
+    width: 30vh;
+    will-change: filter;
+    transition: filter 300ms;
+}
+.webpack {
+    width: 30vh;
+    will-change: filter;
+    transition: filter 300ms;
+}
+
+.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.webpack:hover {
+    filter: drop-shadow(0 0 2em #a9dae7aa);
+}
+
+.react-img {
+    width: 50px;
+}
+
+.react-pgraph {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-weight: 300;
+}
+
+.react-header {
+    font-weight: 500;
+    color: rgb(188, 243, 243);
+}
+
+.react-title {
+    font-weight: 300;
+    color: #fff;
+}
+
+.footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: rgb(33, 39, 43); */
+    position: absolute;
+    bottom: 0;
+    align-items: center;
+    padding: 10px;
+}
+
+.version {
+    color: #9c9a9a;
+}
+
+.github {
+    width: 120px;
+}
+
+.git {
+    display: flex;
+    align-items: center;
+    color: #8d8787 ;
+    text-decoration: none;
+    will-change: filter;
+    filter: drop-shadow(0 0 2em #fbfdfdda);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .react {
+        animation: React-Spins infinite 10s linear;
+    }
+}
+
+@keyframes React-Spins {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media only screen and (max-width: 703px) {
+    .react-head {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        transition: .5s;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+
+    .react-title,
+    .react-js {
+        font-size: 3vw;
+    }
+}
+
+@media only screen and (max-width: 344px) {
+
+    .footer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        transition: .5s;
+    }
+}
