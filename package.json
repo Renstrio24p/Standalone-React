@@ -8,7 +8,8 @@
     "build": "webpack .",
     "lint": "eslint . --fix --max-warnings=0",
     "format": "prettier . --write",
-    "start": "webpack-dev-server ."
+    "start": "webpack-dev-server .",
+    "live": "webpack --watch"
   },
   "keywords": [],
   "author": "",
@@ -38,6 +39,7 @@
     "webpack-dev-server": "^4.15.0"
   },
   "dependencies": {
+    "mini-css-extract-plugin": "^2.7.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }

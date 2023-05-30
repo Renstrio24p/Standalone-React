@@ -3,6 +3,11 @@ const CopyPlugin = require("copy-webpack-plugin");
 const path = require('path');
 
 module.exports = {
+  watch: true,
+  watchOptions: {
+    aggregateTimeout: 200,
+    poll: 500,
+  },
   entry: './src/index.jsx',
   mode: 'development',
   output: {
@@ -36,6 +41,7 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
+        exclude: /\.module\.(sa|sc|c)ss$/,
         use: ["style-loader","css-loader","sass-loader",],
       },
     ],
