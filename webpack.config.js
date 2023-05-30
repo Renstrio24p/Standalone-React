@@ -3,11 +3,6 @@ const CopyPlugin = require("copy-webpack-plugin");
 const path = require('path');
 
 module.exports = {
-  watch: true,
-  watchOptions: {
-    aggregateTimeout: 200,
-    poll: 500,
-  },
   entry: './src/index.jsx',
   mode: 'development',
   output: {
@@ -16,6 +11,11 @@ module.exports = {
     clean: true,
   },
   target: 'web',
+  watch: true,
+  watchOptions: {
+    aggregateTimeout: 200,
+    poll: 500,
+  },
   devServer: {
     port: '5500',
     static: {

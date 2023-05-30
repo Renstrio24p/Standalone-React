@@ -8,7 +8,7 @@
     "build": "webpack .",
     "lint": "eslint . --fix --max-warnings=0",
     "format": "prettier . --write",
-    "start": "webpack-dev-server ."
+    "start" : "webpack --watch"
   },
   "keywords": [],
   "author": "",
