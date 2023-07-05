@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/index.jsx',
   mode: 'development',
   output: {
-    path: path.resolve(__dirname, './dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'index.webpack.js',
     clean: true,
   },
@@ -28,8 +28,9 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/, 
-        exclude: /node_modules/, 
-        use: 'babel-loader', 
+        exclude: /node_modules/,
+        use: 'babel-loader',
+
       },
       {
         test: /\.module\.(sa|sc|c)ss$/,
