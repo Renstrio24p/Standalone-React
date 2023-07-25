@@ -1,6 +1,6 @@
 import React from "react";
-import styles from './assets/sass/modules/app.module.scss'
-import { Join } from "./assets/util/JoinClasses";
+import styles from './sass/modules/app.module.scss'
+import { Join } from "./util/JoinClasses";
 
 export default function Start(){
     return (
@@ -9,7 +9,7 @@ export default function Start(){
                 Hello <span className={Join([styles.weight,styles.black])}>React</span>
             </h1> 
             <h2 className={Join([styles['dark-cyan'],styles.weight,styles['font-size-2_5rem']])}>18</h2>
-                <img className={Join([styles['img-size-50px'],styles.react])} src="/src/assets/react.png" alt="react-logo"/>
+                <img className={Join([styles['img-size-50px'],styles.react])} src="react.png" alt="react-logo"/>
             {/* You can now start coding right here..*/}
         </div>
     )

@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import ReactApp from "./react-18/react";
+import ReactApp from "./components/react";
 import Start from "./start"; // Start coding from scratch
-import './assets/sass/index.scss'
+import './sass/index.scss'
 
 const DOM = ReactDOM.createRoot(document.getElementById('root'))
 DOM.render (
