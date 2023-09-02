@@ -2,6 +2,20 @@
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/assets/sass/index.scss ***!
   \*********************************************************************************************************************/
 @import url(https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap);
+/*!*************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/assets/sass/index.scss (1) ***!
+  \*************************************************************************************************************************/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Poppins";
+}
 /*!**************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/assets/sass/modules/app.module.scss ***!
   \**************************************************************************************************************************************************************/
@@ -187,19 +201,5 @@
     transform: rotate(360deg);
   }
 }
-/*!*************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/assets/sass/index.scss (1) ***!
-  \*************************************************************************************************************************/
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-html {
-  font-family: "Poppins";
-}
-
-/*# sourceMappingURL=styles.ff8993def97002a693c8.css.map*/
+/*# sourceMappingURL=styles.36dacc7f40da1c97bf27.css.map*/
