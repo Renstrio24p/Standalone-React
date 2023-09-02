@@ -7,7 +7,7 @@ Standalone React v 1.0.6 - Webpack version
 version update 1.0.6
 
     - add image linking for <img src='images/filename.jpg' alt='test'>
-    - add video linking for <videos src='videos/filenmae.mp4' controls autoplay>
+    - add video linking for <video src='videos/filenmae.mp4' controls autoplay>
     - minimizer chunksize js - webpack js update
     - css / scss and utils are inside Assets folder
 
