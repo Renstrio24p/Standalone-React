@@ -1,0 +1,205 @@
+/*!*********************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/assets/sass/index.scss ***!
+  \*********************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap);
+/*!**************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/assets/sass/modules/app.module.scss ***!
+  \**************************************************************************************************************************************************************/
+.cshTCUflyI97JcrSdUi8 {
+  color: rgb(24, 114, 156);
+}
+
+.U5TXIfaxa03PkEjpyNAx {
+  font-weight: 500;
+}
+
+.fvLB0QLih4fwikZ1ZQ5a {
+  font-size: 2.5rem;
+}
+
+.EJA4MjM1d9ABbyc9JKLJ {
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+}
+
+.fnTqpsZf8VlH5q7l8dXv {
+  color: #000;
+}
+
+.VcyKBWz_K_TO3jhgT9JK {
+  color: rgb(30, 61, 61);
+}
+
+.CNpfgYI727DoMtG8dG9z {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Faj8acmAeRSo6aqs8H8d {
+  gap: 20px;
+}
+
+.onGFBLgHZ5AF5EQejFDm.BAEi0hLFr8FFCnPqBG03 {
+  width: 50px;
+  height: auto;
+}
+
+.OnR8A4OWjmbLfDZ4vKDQ {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.j4aLM98X2Kh3C35LyI6N {
+  background-image: url(images/reactjs-icon2.bd4fa5d7df78cdecc866.png);
+  background-repeat: no-repeat;
+  background-position-x: right;
+  margin-right: -100px;
+  background-position-y: center;
+  background-size: 20vh;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(33, 39, 43);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bmjkm45KZ4S_QcRBb5tv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.bmjkm45KZ4S_QcRBb5tv {
+  padding: 20% 10px 20% 10px;
+}
+
+.BAEi0hLFr8FFCnPqBG03 {
+  width: 30vh;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.RsX4KDO0AHC8DYkEP0EN {
+  width: 30vh;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.BAEi0hLFr8FFCnPqBG03:hover {
+  filter: drop-shadow(0 0 2em rgba(97, 218, 251, 0.6666666667));
+}
+
+.RsX4KDO0AHC8DYkEP0EN:hover {
+  filter: drop-shadow(0 0 2em rgba(169, 218, 231, 0.6666666667));
+}
+
+.b6fcNqIkIb5IhZDMZdWV {
+  width: 50px;
+}
+
+.BcpOCtDyQyt1rpZNKA4b {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-weight: 300;
+}
+
+.Z2jppZ0qLkWEhwvUzqMY {
+  font-weight: 500;
+  color: rgb(188, 243, 243);
+}
+
+.O1pxncRCo4SxCr6MsWZ0 {
+  font-weight: 300;
+  color: #fff;
+}
+
+.fzsIjYj9rEieGZfBUMpE {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  /* background-color: rgb(33, 39, 43); */
+  position: absolute;
+  bottom: 0;
+  align-items: center;
+  padding: 10px;
+}
+
+.mtgqv2zaPmcNJ81rpLfe {
+  color: #9c9a9a;
+}
+
+.XdUsP2CNGVE8JDiWkkEB {
+  width: 120px;
+}
+
+.eABD1YXnKRvPg0iIa8LH {
+  display: flex;
+  align-items: center;
+  color: #8d8787;
+  text-decoration: none;
+  will-change: filter;
+  filter: drop-shadow(0 0 2em rgba(251, 253, 253, 0.8549019608));
+}
+
+@media only screen and (max-width: 703px) {
+  .bmjkm45KZ4S_QcRBb5tv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    transition: 0.5s;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .O1pxncRCo4SxCr6MsWZ0,
+  .qrNLP_6Y9b8z3_e9Zs4N {
+    font-size: 3vw;
+  }
+}
+@media only screen and (max-width: 344px) {
+  .fzsIjYj9rEieGZfBUMpE {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    transition: 0.5s;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .BAEi0hLFr8FFCnPqBG03 {
+    animation: xat61c8jg1bQE7Xy1sAA infinite 10s linear;
+  }
+}
+@keyframes xat61c8jg1bQE7Xy1sAA {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/*!*************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/assets/sass/index.scss (1) ***!
+  \*************************************************************************************************************************/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Poppins";
+}
+
+/*# sourceMappingURL=styles.185c26e08981acd16db4.css.map*/

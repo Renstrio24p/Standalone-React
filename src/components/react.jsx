@@ -19,7 +19,7 @@ export default function ReactApp() {
                     <a href="https://webpack.js.org/"><img src="images/webpack.png" className={styles.webpack}></img></a>
                 </div>
            <div className={styles.footer}>
-             <p className={styles.version}>Version 1.0.5</p>
+             <p className={styles.version}>Version 1.0.6</p>
              <a href="https://github.com/features/codespaces/" className={styles.git}> <img src="images/github.png" className={styles.github} /> Codespaces </a>
            </div>
            </div>
