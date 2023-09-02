@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import ReactApp from "./components/react";
-import Start from "./start"; // Start coding from scratch
-import './sass/index.scss'
+import './assets/sass/index.scss';
+import App from "./app";
 
 const DOM = ReactDOM.createRoot(document.getElementById('root'))
 DOM.render (
     <React.StrictMode>
-        <ReactApp /> {/* Replace this ReactApp -> Start */}
+        <App />
     </React.StrictMode>
 )
