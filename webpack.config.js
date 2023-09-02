@@ -1,6 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require("copy-webpack-plugin");
+const CopyPlugin = require('copy-webpack-plugin');
 const path = require('path');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   entry: './src/index.jsx',
@@ -14,14 +16,14 @@ module.exports = {
   devServer: {
     port: '4500',
     static: {
-      directory: path.join(__dirname, 'src')
-},
+      directory: path.join(__dirname, 'src/images'),
+    },
     open: true,
     hot: true,
     liveReload: true,
   },
   resolve: {
-    extensions: ['.js', '.jsx','.json'],
+    extensions: ['.js', '.jsx', '.json'],
   },
   module: {
     rules: [
@@ -37,30 +39,32 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ["style-loader","css-loader","sass-loader",],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(png|jpe?g|gif|svg|webp)$/i,
         type: 'asset/inline',
       },
-      {
-        test: /\.(mp4|webm|ogg|ogv)$/i,
-        type: 'asset/inline',
-      }
+    ],
+  },
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin(), // Minimize CSS
+      new TerserPlugin(), // Minimize JavaScript
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, './', 'index.html')
+      template: path.join(__dirname, './', 'index.html'),
     }),
     new CopyPlugin({
-        patterns: [
-          { from: "src/images", to: "./" },
-        ],
-      }),
-  ]
+      patterns: [
+        { from: 'src/images', to: './' },
+      ],
+    }),
+  ],
 };

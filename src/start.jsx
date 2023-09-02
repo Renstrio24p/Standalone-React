@@ -5,7 +5,10 @@ import ReactApp from "./components/react";
 export default function Start(){
 
     return (
-        <ReactApp />
+        <div>
+            <ReactApp />
+            {/* You can start coding this file */}
+        </div>
     )
 
 }
