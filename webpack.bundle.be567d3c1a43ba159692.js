@@ -97,7 +97,7 @@ function ReactApp() {
     className: _assets_sass_modules_app_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].footer
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", {
     className: _assets_sass_modules_app_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].version
-  }, "Version 1.0.5"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
+  }, "Version 1.0.6"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("a", {
     href: "https://github.com/features/codespaces/",
     className: _assets_sass_modules_app_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].git
   }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
@@ -335,4 +335,4 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=webpack.bundle.994a1153712a17f36bd1.js.map
+//# sourceMappingURL=webpack.bundle.be567d3c1a43ba159692.js.map
