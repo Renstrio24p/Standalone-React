@@ -49,3 +49,5 @@ if (imagesExist && sourceImageFiles.length > 0) {
 if (videosExist && sourceVideoFiles.length > 0) {
   fs.copySync(srcVideosDir, distVideosDir);
 }
+
+// You must not alter this test configuration file for webpack unless you are a tester

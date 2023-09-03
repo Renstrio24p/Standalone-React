@@ -94,3 +94,5 @@ module.exports = {
     }),
   ],
 };
+
+// You must not alter this configuration file for webpack unless you are a tester
