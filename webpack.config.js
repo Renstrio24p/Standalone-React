@@ -3,6 +3,7 @@ const path = require('path');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { execSync } = require('child_process');
+const webpack = require('webpack');
 
 execSync('node webpack.test.js');
 
@@ -11,8 +12,8 @@ module.exports = {
   mode: 'development',
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'assets/[name].[contenthash].js', // Use contenthash for cache-busting
-    // clean: true,
+    filename: 'assets/[name].[contenthash].js', 
+     publicPath: '/'
   },
   target: 'web',
   devServer: {
@@ -91,6 +92,11 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.join(__dirname, './', 'index.html'),
+    }),
+    new webpack.ProvidePlugin({
+      React: 'react',
+      ReactDOM: 'react-dom',
+      'ReactRouterDOM': 'react-router-dom',
     }),
   ],
 };
