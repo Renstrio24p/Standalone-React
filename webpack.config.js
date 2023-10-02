@@ -73,7 +73,7 @@ module.exports = {
     ],
     splitChunks: {
       chunks: 'async',
-      minSize: 2000, // Adjust this value as needed, e.g., 20000 bytes
+      minSize: 2000, 
       maxSize: 20000,
       minChunks: 1,
       maxAsyncRequests: 30,
