@@ -1,4 +1,4 @@
-import ReactApp from "./components/react";
+const ReactApp = React.lazy(()=>import('./components/react'))
 
 export default function Start(){
 

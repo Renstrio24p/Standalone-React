@@ -8,11 +8,10 @@ const path = require('path');
 
 module.exports = {
   entry: './src/index.jsx',
-  mode: 'development',
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'assets/[name].[contenthash].js', 
-     publicPath: '/'
+    //  publicPath: '/' //for backend and react-router-dom
   },
   target: 'web',
   devServer: {
