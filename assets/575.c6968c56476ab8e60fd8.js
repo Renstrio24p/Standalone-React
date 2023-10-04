@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkstandalone_react=self.webpackChunkstandalone_react||[]).push([[575],{575:(e,n,t)=>{t.r(n),t.d(n,{default:()=>r});var a=t(294),l=a.lazy((function(){return Promise.all([t.e(438),t.e(798),t.e(778),t.e(862)]).then(t.bind(t,862))}));function r(){return a.createElement("div",null,a.createElement(l,null))}}}]);
