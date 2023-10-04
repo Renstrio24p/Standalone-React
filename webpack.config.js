@@ -1,11 +1,10 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const { execSync } = require('child_process');
+const CopyWebpack = require('copy-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 const webpack = require('webpack');
-
-execSync('node webpack.test.js');
+const path = require('path');
 
 module.exports = {
   entry: './src/index.jsx',
@@ -18,6 +17,13 @@ module.exports = {
   target: 'web',
   devServer: {
     port: '4500',
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8800', // Proxy Origin 
+        secure: false,
+        changeOrigin: true,
+      },
+    },
     static: {
       directory: path.join(__dirname, 'src'),
     },
@@ -98,6 +104,19 @@ module.exports = {
       ReactDOM: 'react-dom',
       'ReactRouterDOM': 'react-router-dom',
     }),
+    new CopyWebpack({
+      patterns: [
+        {
+          from: 'src/images', // image directory origin
+          to: 'images', // image directory destination
+        },
+        {
+          from: 'src/videos', // videos directory origin
+          to: 'videos', // videos directory destination
+        },
+      ],
+    }),
+    new Dotenv(),
   ],
 };
 
