@@ -38,23 +38,30 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
-          test: /\.(js|jsx)$/,
-          exclude: /node_modules/,
+          test: /node_modules/,
           use: {
             loader: 'esbuild-loader',
             options: {
-              loader: 'jsx',
+              target: 'es2015',
+            },
+          },
+        },
+        {
+          test: /\.js(x)$/,
+          use: {
+            loader: 'esbuild-loader',
+            options: {
               target: 'es2015',
             },
           },
         },
         {
           test: /\.css$/i,
-          use: ['style-loader', 'css-loader', 'esbuild-loader'],
+          use: ['style-loader', 'css-loader'],
         },
         {
           test: /\.s[ac]ss$/i,
-          use: ['style-loader', 'css-loader', 'esbuild-loader', 'sass-loader'],
+          use: ['style-loader', 'css-loader', 'sass-loader'],
         },
         {
           test: /\.(png|jpe?g|gif|svg|webp)$/i,
@@ -94,7 +101,7 @@ module.exports = (env, argv) => {
         ],
       }),
       new Dotenv(),
-    ], // Closing parenthesis for the plugins array
+    ],
     optimization: {
       minimize: isProduction,
       splitChunks: {

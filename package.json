@@ -22,6 +22,8 @@
     "css-loader": "^6.8.1",
     "css-minimizer-webpack-plugin": "^5.0.1",
     "dotenv-webpack": "^8.0.1",
+    "esbuild": "^0.19.4",
+    "esbuild-loader": "^4.0.2",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
