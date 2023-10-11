@@ -1,122 +1,120 @@
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const CopyWebpack = require('copy-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-const webpack = require('webpack');
 const path = require('path');
+const webpack = require('webpack');
 
-module.exports = {
-  entry: './src/index.jsx',
-  output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: 'assets/[name].[contenthash].js', 
-    //  publicPath: '/' //for backend and react-router-dom
-  },
-  target: 'web',
-  devServer: {
-    port: '4500',
-    proxy: {
-      '/api': {
-        target: 'http://localhost:8800', // Proxy Origin 
-        secure: false,
-        changeOrigin: true,
+module.exports = (env, argv) => {
+  const isProduction = argv.mode === 'production';
+
+  return {
+    mode: isProduction ? 'production' : 'development',
+    entry: './src/index.jsx',
+    output: {
+      path: path.resolve(__dirname, './dist'),
+      filename: 'assets/[name].[contenthash].js',
+      chunkFilename: 'assets/[name].[contenthash].js',
+    },
+    target: 'web',
+    devServer: {
+      port: '4500',
+      proxy: {
+        '/api': {
+          target: 'http://localhost:8800',
+          secure: false,
+          changeOrigin: true,
+        },
       },
+      static: {
+        directory: path.join(__dirname, 'src'),
+      },
+      open: true,
+      hot: !isProduction,
+      liveReload: !isProduction,
     },
-    static: {
-      directory: path.join(__dirname, 'src'),
+    resolve: {
+      extensions: ['.js', '.jsx', '.json'],
     },
-    open: true,
-    hot: true,
-    liveReload: true,
-  },
-  resolve: {
-    extensions: ['.js', '.jsx', '.json'],
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'],
-            plugins: ['@babel/plugin-syntax-dynamic-import'],
+    module: {
+      rules: [
+        {
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'esbuild-loader',
+            options: {
+              loader: 'jsx',
+              target: 'es2015',
+            },
+          },
+        },
+        {
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader', 'esbuild-loader'],
+        },
+        {
+          test: /\.s[ac]ss$/i,
+          use: ['style-loader', 'css-loader', 'esbuild-loader', 'sass-loader'],
+        },
+        {
+          test: /\.(png|jpe?g|gif|svg|webp)$/i,
+          type: 'asset/resource',
+          generator: {
+            filename: 'images/[name].[contenthash][ext]',
+          },
+        },
+        {
+          test: /\.(mp4|webm|ogg|ogv)$/i,
+          type: 'asset/resource',
+          generator: {
+            filename: 'videos/[name].[contenthash][ext]',
+          },
+        },
+      ],
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: path.join(__dirname, './', 'index.html'),
+      }),
+      new webpack.ProvidePlugin({
+        React: 'react',
+        ReactDOM: 'react-dom',
+        ReactRouterDOM: 'react-router-dom',
+      }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: 'src/images',
+            to: 'images',
+          },
+          {
+            from: 'src/videos',
+            to: 'videos',
+          },
+        ],
+      }),
+      new Dotenv(),
+    ], // Closing parenthesis for the plugins array
+    optimization: {
+      minimize: isProduction,
+      splitChunks: {
+        chunks: 'async',
+        minSize: 244 * 1024, // 244 KiB
+        cacheGroups: {
+          defaultVendors: {
+            test: /[\\/]node_modules[\\/]/,
+            priority: -10,
+          },
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true,
           },
         },
       },
-      {
-        test: /\.css$/i,
-        use: ['style-loader', 'css-loader'],
-      },
-      {
-        test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg|webp)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: 'images/[name].[contenthash][ext]', // Output path for images
-        },
-      },
-      {
-        test: /\.(mp4|webm|ogg|ogv)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: 'videos/[name].[contenthash][ext]', // Output path for videos
-        },
-      },
-    ],
-  },
-  optimization: {
-    minimize: true,
-    minimizer: [
-      new CssMinimizerPlugin(), // Minimize CSS
-      new TerserPlugin(), // Minimize JavaScript
-    ],
-    splitChunks: {
-      chunks: 'async',
-      minSize: 2000, 
-      maxSize: 20000,
-      minChunks: 1,
-      maxAsyncRequests: 30,
-      maxInitialRequests: 30,
-      automaticNameDelimiter: '~',
-      enforceSizeThreshold: 50000,
-      cacheGroups: {
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all',
-        },
-      },
     },
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, './', 'index.html'),
-    }),
-    new webpack.ProvidePlugin({
-      React: 'react',
-      ReactDOM: 'react-dom',
-      'ReactRouterDOM': 'react-router-dom',
-    }),
-    new CopyWebpack({
-      patterns: [
-        {
-          from: 'src/images', // image directory origin
-          to: 'images', // image directory destination
-        },
-        {
-          from: 'src/videos', // videos directory origin
-          to: 'videos', // videos directory destination
-        },
-      ],
-    }),
-    new Dotenv(),
-  ],
+    cache: {
+      type: 'filesystem',
+    },
+  };
 };
-
-// You must not alter this configuration file for webpack unless you are a tester
