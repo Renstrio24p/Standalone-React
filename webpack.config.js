@@ -120,6 +120,10 @@ module.exports = (env, argv) => {
         },
       },
     },
+    performance: {
+      maxAssetSize: 244000, // Set the maximum asset size
+      maxEntrypointSize: 244000, // Set the maximum entry point size
+    },
     cache: {
       type: 'filesystem',
     },
