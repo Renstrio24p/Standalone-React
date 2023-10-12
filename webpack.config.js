@@ -31,6 +31,7 @@ module.exports = (env, argv) => {
       open: true,
       hot: !isProduction,
       liveReload: !isProduction,
+      // publicPath: "/" // Add this line for react-router-dom
     },
     resolve: {
       extensions: ['.js', '.jsx', '.json'],
