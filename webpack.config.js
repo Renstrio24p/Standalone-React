@@ -3,9 +3,42 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const path = require('path');
 const webpack = require('webpack');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
+  const startTime = Date.now(); // Record the start time
+
+  const devServerOptions = {
+    port: '4500',
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8800',
+        secure: false,
+        changeOrigin: true,
+      },
+    },
+    static: {
+      directory: path.join(__dirname, 'src'),
+    },
+    open: true,
+    hot: !isProduction,
+    liveReload: !isProduction,
+  };
+
+  // Disable devMiddleware logging in production
+  if (isProduction) {
+    devServerOptions.client = {
+      logging: 'none',
+    };
+  }
+
+  // Define the FriendlyErrorsWebpackPlugin
+  const friendlyErrorsPlugin = new FriendlyErrorsWebpackPlugin({
+    compilationSuccessInfo: {
+      messages: [`Webpack 5 Standalone successfully compiled in ${Date.now() - startTime}ms`],
+    },
+  });
 
   return {
     mode: isProduction ? 'production' : 'development',
@@ -16,23 +49,7 @@ module.exports = (env, argv) => {
       chunkFilename: 'assets/[name].[contenthash].js',
     },
     target: 'web',
-    devServer: {
-      port: '4500',
-      proxy: {
-        '/api': {
-          target: 'http://localhost:8800',
-          secure: false,
-          changeOrigin: true,
-        },
-      },
-      static: {
-        directory: path.join(__dirname, 'src'),
-      },
-      open: true,
-      hot: !isProduction,
-      liveReload: !isProduction,
-      // publicPath: "/" // Add this line for react-router-dom
-    },
+    devServer: devServerOptions,
     resolve: {
       extensions: ['.js', '.jsx', '.json'],
     },
@@ -44,25 +61,37 @@ module.exports = (env, argv) => {
             loader: 'esbuild-loader',
             options: {
               target: 'es2015',
+              minify:true
             },
           },
         },
         {
-          test: /\.js(x)$/,
+          test: /\.js(x)?$/,
           use: {
             loader: 'esbuild-loader',
             options: {
               target: 'es2015',
+              minify: true,
             },
           },
         },
         {
-          test: /\.css$/i,
-          use: ['style-loader', 'css-loader'],
+          test: /\.(c|sa)ss$/,
+          exclude: /\.module\.(c|sa)ss$/,
+          use: ['style-loader', 'css-loader', 'sass-loader'],
         },
         {
-          test: /\.s[ac]ss$/i,
-          use: ['style-loader', 'css-loader', 'sass-loader'],
+          test: /\.module\.(c|sa)ss$/,
+          use: [
+            'style-loader',
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+              },
+            },
+            'sass-loader',
+          ],
         },
         {
           test: /\.(png|jpe?g|gif|svg|webp)$/i,
@@ -102,6 +131,7 @@ module.exports = (env, argv) => {
         ],
       }),
       new Dotenv(),
+      friendlyErrorsPlugin, // Include the FriendlyErrorsWebpackPlugin
     ],
     optimization: {
       minimize: isProduction,
@@ -128,5 +158,6 @@ module.exports = (env, argv) => {
     cache: {
       type: 'filesystem',
     },
+    stats: 'errors-warnings', // Display compilation stats: errors and warnings
   };
 };
