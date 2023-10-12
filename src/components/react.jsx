@@ -33,7 +33,7 @@ export default function ReactApp() {
           >
             {" "}
             <img
-              src="images/github.png"
+              src="images/github-1.png"
               className={styles.github}
             /> Codespaces{" "}
           </a>
