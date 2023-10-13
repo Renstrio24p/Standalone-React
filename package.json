@@ -1,15 +1,15 @@
 {
   "name": "standalone-react",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.1.0", 
+  "description": "Your project description",
   "main": "./src/index.jsx",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --mode development --config webpack.config.js",
     "build": "webpack --mode production --config webpack.config.js",
-    "start": "webpack-dev-server --mode development --config webpack.config.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Your Name",
   "license": "ISC",
   "devDependencies": {
     "compression-webpack-plugin": "^10.0.0",
@@ -20,7 +20,6 @@
     "esbuild": "^0.19.4",
     "esbuild-loader": "^4.0.2",
     "file-loader": "^6.2.0",
-    "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^5.5.3",
     "sass": "^1.63.6",
     "sass-loader": "^13.3.2",

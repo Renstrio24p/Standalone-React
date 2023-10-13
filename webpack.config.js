@@ -3,11 +3,11 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const path = require('path');
 const webpack = require('webpack');
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const WebpackBar = require('webpackbar');
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
-  const startTime = Date.now(); // Record the start time
+  const startTime = Date.now();
 
   const devServerOptions = {
     port: '4500',
@@ -26,19 +26,13 @@ module.exports = (env, argv) => {
     liveReload: !isProduction,
   };
 
-  // Disable devMiddleware logging in production
   if (isProduction) {
     devServerOptions.client = {
       logging: 'none',
     };
   }
 
-  // Define the FriendlyErrorsWebpackPlugin
-  const friendlyErrorsPlugin = new FriendlyErrorsWebpackPlugin({
-    compilationSuccessInfo: {
-      messages: [`Webpack 5 Standalone successfully compiled in ${Date.now() - startTime}ms`],
-    },
-  });
+  const webpackBarPlugin = new WebpackBar();
 
   return {
     mode: isProduction ? 'production' : 'development',
@@ -75,11 +69,11 @@ module.exports = (env, argv) => {
           },
         },
         {
-          test:/\.(c|sa|sc)ss$/,
+          test: /\.(c|sa|sc)ss$/,
           exclude: /\.module\.(c|sa|sc)ss$/,
           use: [
             'style-loader',
-            'css-loader',
+            // 'css-loader',
             'sass-loader',
             {
               loader: 'esbuild-loader',
@@ -94,13 +88,21 @@ module.exports = (env, argv) => {
           test: /\.module\.(c|sa|sc)ss$/,
           use: [
             'style-loader',
+            // {
+            //   loader: 'css-loader',
+            //   options: {
+            //     modules: true,
+            //   },
+            // },
+            'sass-loader',
             {
-              loader: 'css-loader',
+              loader: 'esbuild-loader',
               options: {
-                modules: true,
+                loader: 'css',
+                minify: true,
+                target: 'es2015',
               },
             },
-            'sass-loader',
           ],
         },
         {
@@ -141,7 +143,7 @@ module.exports = (env, argv) => {
         ],
       }),
       new Dotenv(),
-      friendlyErrorsPlugin, // Include the FriendlyErrorsWebpackPlugin
+      webpackBarPlugin,
     ],
     optimization: {
       minimize: isProduction,
@@ -162,12 +164,12 @@ module.exports = (env, argv) => {
       },
     },
     performance: {
-      maxAssetSize: 244000, // Set the maximum asset size
-      maxEntrypointSize: 244000, // Set the maximum entry point size
+      maxAssetSize: 244000,
+      maxEntrypointSize: 244000,
     },
     cache: {
       type: 'filesystem',
     },
-    stats: 'errors-warnings', // Display compilation stats: errors and warnings
+    stats: 'errors-warnings',
   };
 };
