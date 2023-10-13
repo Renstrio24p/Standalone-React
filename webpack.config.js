@@ -73,11 +73,12 @@ module.exports = (env, argv) => {
           exclude: /\.module\.(c|sa|sc)ss$/,
           use: [
             'style-loader',
-            // 'css-loader',
+            'css-loader',
             'sass-loader',
             {
               loader: 'esbuild-loader',
               options: {
+                loader:'css',
                 minify: true,
                 target: 'es2015',
               },
@@ -88,12 +89,12 @@ module.exports = (env, argv) => {
           test: /\.module\.(c|sa|sc)ss$/,
           use: [
             'style-loader',
-            // {
-            //   loader: 'css-loader',
-            //   options: {
-            //     modules: true,
-            //   },
-            // },
+            {
+              loader: 'css-loader',
+              options: {
+                modules: true,
+              },
+            },
             'sass-loader',
             {
               loader: 'esbuild-loader',
