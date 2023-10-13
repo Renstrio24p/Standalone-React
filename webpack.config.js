@@ -61,6 +61,7 @@ module.exports = (env, argv) => {
             loader: 'esbuild-loader',
             options: {
               target: 'es2015',
+              minify:true
             },
           },
         },
@@ -71,12 +72,13 @@ module.exports = (env, argv) => {
             options: {
               target: 'es2015',
               minify: true,
+              loader:'jsx'
             },
           },
         },
         {
-          test: /\.(c|sa)ss$/i,
-          exclude: /\.module\.(c|sa)ss$/,
+          test:/\.(c|sa|sc)ss$/,
+          exclude: /\.module\.(c|sa|sc)ss$/,
           use: [
             'style-loader',
             'css-loader',
@@ -91,13 +93,21 @@ module.exports = (env, argv) => {
           ],
         },
         {
-          test: /\.module\.(c|sa)ss$/,
+          test: /\.module\.(c|sa|sc)ss$/,
           use: [
             'style-loader',
             {
               loader: 'css-loader',
               options: {
                 modules: true,
+              },
+            },
+            {
+              loader: 'esbuild-loader',
+              options: {
+                loader:'css',
+                minify: true,
+                target: 'es2015',
               },
             },
             'sass-loader',
