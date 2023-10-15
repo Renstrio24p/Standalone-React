@@ -3,7 +3,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const path = require('path');
 const webpack = require('webpack');
-const WebpackBar = require('webpackbar');
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
@@ -20,10 +19,12 @@ module.exports = (env, argv) => {
     },
     static: {
       directory: path.join(__dirname, 'src'),
+      publicPath: '/'
     },
     open: true,
     hot: !isProduction,
     liveReload: !isProduction,
+    historyApiFallback: true,
   };
 
   if (isProduction) {
@@ -32,7 +33,6 @@ module.exports = (env, argv) => {
     };
   }
 
-  const webpackBarPlugin = new WebpackBar();
 
   return {
     mode: isProduction ? 'production' : 'development',
@@ -41,6 +41,7 @@ module.exports = (env, argv) => {
       path: path.resolve(__dirname, './dist'),
       filename: 'assets/[name].[contenthash].js',
       chunkFilename: 'assets/[name].[contenthash].js',
+      publicPath: '/',
     },
     target: 'web',
     devServer: devServerOptions,
@@ -129,7 +130,6 @@ module.exports = (env, argv) => {
       new webpack.ProvidePlugin({
         React: 'react',
         ReactDOM: 'react-dom',
-        ReactRouterDOM: 'react-router-dom',
       }),
       new CopyWebpackPlugin({
         patterns: [
@@ -144,7 +144,6 @@ module.exports = (env, argv) => {
         ],
       }),
       new Dotenv(),
-      webpackBarPlugin,
     ],
     optimization: {
       minimize: isProduction,
