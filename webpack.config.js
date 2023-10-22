@@ -19,7 +19,7 @@ module.exports = (env, argv) => {
     },
     static: {
       directory: path.join(__dirname, 'src'),
-      publicPath: '/'
+      // publicPath: '/'
     },
     open: true,
     hot: !isProduction,
@@ -41,7 +41,7 @@ module.exports = (env, argv) => {
       path: path.resolve(__dirname, './dist'),
       filename: 'assets/[name].[contenthash].js',
       chunkFilename: 'assets/[name].[contenthash].js',
-      publicPath: '/',
+      // publicPath: '/',
     },
     target: 'web',
     devServer: devServerOptions,
