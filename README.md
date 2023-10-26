@@ -51,4 +51,4 @@ To start Standalone React, run this command to install dependencies:
 ![NPM Logo](https://i.ibb.co/xChqkbt/Clipboard-2-removebg-preview.png)
 
 
-- $ npx @standalone-stacks/react <project name>
+command `npx @standalone-stacks/react <project name>`
