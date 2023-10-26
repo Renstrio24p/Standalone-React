@@ -64,6 +64,7 @@ module.exports = (env, argv) => {
           use: {
             loader: 'esbuild-loader',
             options: {
+              loader: 'jsx',
               target: 'es2015',
               minify: true,
             },
