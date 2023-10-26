@@ -60,7 +60,7 @@ module.exports = (env, argv) => {
           },
         },
         {
-          test: /\.js(x)?$/,
+          test: /\.(js|jsx)?$/,
           use: {
             loader: 'esbuild-loader',
             options: {
