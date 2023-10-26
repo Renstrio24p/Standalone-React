@@ -1,86 +1,54 @@
-<a href="https://react.dev"><img src="https://i.ibb.co/4NfqXRf/Clipboard-removebg-preview-1.png "></img></a>
+# Standalone React GitHub Codespace
 
-# Standalone React Github - Codespace
+![React Logo](https://i.ibb.co/4NfqXRf/Clipboard-removebg-preview-1.png)
 
-Standalone React v 1.0.6 - Webpack version
+**Standalone React** version **1.0.6** with Webpack
 
-version update 1.0.6
+## Version Update 1.0.6
 
-    - add image linking for <img src='images/filename.jpg' alt='test'>
-    - add video linking for <video src='videos/filenmae.mp4' controls autoplay>
-    - minimizer chunksize js - webpack js update
-    - css / scss and utils are inside Assets folder
+- Added support for image linking: `<img src='images/filename.jpg' alt='test'>`
+- Added support for video linking: `<video src='videos/filename.mp4' controls autoplay>`
+- Minimized chunk size for JavaScript with Webpack update
+- CSS, SCSS, and utilities are now located inside the Assets folder
 
-version update 1.0.5
+## Version Update 1.0.5
 
-    - CSS Loader
-    - SASS/SCSS Loader
+- Added CSS Loader
+- Added SASS/SCSS Loader
 
-version update 1.0.4
+## Version Update 1.0.4
 
-    - auto reload support with live server extension
+- Added auto-reload support with the Live Server extension
 
-version update 1.0.3
+## Version Update 1.0.3
 
-    - updating files with optimal content
-    - remove yarn (optional)
+- Updated files with optimal content
+- Removed Yarn (optional)
 
-version update 1.0.2
+## Version Update 1.0.2
 
-    - add yarn
+- Added Yarn support
 
-version update 1.0.0
+## Version Update 1.0.0
 
-    - preview version beta sdreact
+- Preview version "beta sdreact"
 
-I made this component to make your life easier to explore react.
+I've created this component to make your life easier when exploring React.
 
-complete standalone react w/o npx create-react-app
+It's a complete standalone React setup without the need for `npx create-react-app`.
 
-Requires : Node JS
+**Requirements**: Node.js
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Node.js_logo_2015.svg" width="200px"/>
+![Node.js Logo](https://upload.wikimedia.org/wikipedia/commons/7/7e/Node.js_logo_2015.svg)
 
 Make sure you download it right away.
 
-    - Windows - https://nodejs.org/dist/v18.16.0/node-v18.16.0-x64.msi
-      Mac OS - https://nodejs.org/dist/v18.16.0/node-v18.16.0.pkg
+- Windows: [Node.js MSI Installer](https://nodejs.org/dist/v18.16.0/node-v18.16.0-x64.msi)
+- macOS: [Node.js PKG Installer](https://nodejs.org/dist/v18.16.0/node-v18.16.0.pkg)
 
-To start Standalone React now run this command to install dependencies inside.
+To start Standalone React, run this command to install dependencies:
 
-<img src="https://i.ibb.co/xChqkbt/Clipboard-2-removebg-preview.png" width="400px"/>
-
-    $ npx @standalone-stacks/react <project name>
+![NPM Logo](https://i.ibb.co/xChqkbt/Clipboard-2-removebg-preview.png)
 
 
-commands available
-
-update to latest Dependencies on package.json - when notification pops out just click "Overwrite" to save the latest dependencies
-
-    $ npm run update
-
-Building your changes
-     
-     $ npm run build
-
-Start your React Server
-    
-     $ npm run start
-
-To run and monitor your changes while coding, use "Live server extension"
-
-     - https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
-
-To run your React Server with "Live Server Extension"
-
-right click your "index.html" file and Open with Live server then run this command.
-
-     $ npm start
-
-locate the "Start.jsx" and start your coding with react.
-
-     I hope you like my work for this template.
-     - Waren Gador
-       Web Developer
-
-
+$ npx @standalone-stacks/react <project name>
