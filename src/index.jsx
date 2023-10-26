@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./assets/css/index.css";
-const Start = React.lazy(() => import("./start")); // Import components using Lazy React
+const Start = React.lazy(()=>import('./start'))
 
 const DOM = ReactDOM.createRoot(document.getElementById("root"));
 DOM.render(
