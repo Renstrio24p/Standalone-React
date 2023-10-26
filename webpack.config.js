@@ -55,12 +55,12 @@ module.exports = (env, argv) => {
           use: {
             loader: 'esbuild-loader',
             options: {
-              target: 'es2015',
+              target: 'esnext',
             },
           },
         },
         {
-          test: /\.(js|jsx)?$/,
+          test: /\.(jsx)?$/,
           use: {
             loader: 'esbuild-loader',
             options: {
