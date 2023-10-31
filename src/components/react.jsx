@@ -22,12 +22,9 @@ export default function React() {
           </a>
         </div>
         <div>
-          <h1>Standalone React TS</h1>
+          <h1>Standalone React </h1>
           <div className="ts-div">
-            <p>Learn React with</p>
-            <div className="ts">
-              <img src={TSImg} alt="Typescript" />
-            </div>
+            <p>Learn React </p>
             at
             <pre className="apps">src/start.tsx</pre>
           </div>
