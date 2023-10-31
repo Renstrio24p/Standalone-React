@@ -1,42 +1,55 @@
-import styles from "../assets/css/modules/app.module.css";
+import { useState } from "react";
+import { GitImg, ReactImg, TSImg, WebpackImg } from "./image";
 
-export default function ReactApp() {
+
+export default function React() {
+  const [counter, setCounter] = useState(0);
+
+  function handleCounterChange(amount) {
+    setCounter((prevCount) => {
+      const newCount = prevCount + amount;
+      // Ensure the counter doesn't go below 0
+      return newCount < 0 ? 0 : newCount;
+    });
+  }
+
   return (
-    <div className={styles["react-content"]}>
-      <div className={styles["react-body"]}>
-        <div className={styles["react-head"]}>
-          <a href="https://react.dev/">
-            <img src="images/react.svg" className={styles.react}></img>
-          </a>
-          <div className={styles["react-text"]}>
-            <h1 className={styles["react-header"]}>Standalone React</h1>
-            <p className={styles["react-pgraph"]}>
-              <span className={styles["react-title"]}>
-                Make your life simple and organize with{" "}
-              </span>
-              <img src="images/react.svg" className={styles["react-img"]}></img>
-              <span className={styles["react-js"]}> React Js.</span>
-            </p>
-            <p className={styles["react-title"]}>
-              Webpack Version. supports Codespace
-            </p>
-          </div>
-          <a href="https://webpack.js.org/">
-            <img src="images/webpack.png" className={styles.webpack}></img>
+    <div>
+      <div className="react-div">
+        <div className="logo">
+          <a href="http://react.dev">
+            <img src={ReactImg} className="react" alt="image" />
           </a>
         </div>
-        <div className={styles.footer}>
-          <p className={styles.version}>Version 1.0.6</p>
-          <a
-            href="https://github.com/features/codespaces/"
-            className={styles.git}
-          >
-            {" "}
-            <img
-              src="images/github-1.png"
-              className={styles.github}
-            /> Codespaces{" "}
+        <div>
+          <h1>Standalone React TS</h1>
+          <div className="ts-div">
+            <p>Learn React with</p>
+            <div className="ts">
+              <img src={TSImg} alt="Typescript" />
+            </div>
+            at
+            <pre className="apps">src/start.tsx</pre>
+          </div>
+          <div className="buttons">
+            <button onClick={() => handleCounterChange(1)}>+1</button>
+            <button>Count : <span className={counter > 0 ? "yellow" : counter < 0 ? "red" : ""}>{counter}</span></button>
+            <button onClick={() => handleCounterChange(-1)}>-1</button>
+          </div>
+        </div>
+        <div className="logo">
+          <a href="http://webpack.js.org">
+            <img src={WebpackImg} className="webpack" alt="" />
           </a>
+        </div>
+      </div>
+      <div className="footer">
+        <div className="version">version 1.0.6</div>
+        <div className="github">
+          <div className="gitlogo">
+            <img src={GitImg} className="git" alt="github" />
+          </div>
+          <p>Codespace</p>
         </div>
       </div>
     </div>
