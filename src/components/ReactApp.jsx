@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { GitImg, ReactImg, TSImg, WebpackImg } from "./Images";
+import { GitImg, ReactImg, WebpackImg } from "./Images";
 
 
-export default function React() {
+export default function ReactApp() {
   const [counter, setCounter] = useState(0);
 
   function handleCounterChange(amount) {
@@ -22,11 +22,14 @@ export default function React() {
           </a>
         </div>
         <div>
-          <h1>Standalone React </h1>
-          <div className="ts-div">
+          <h1>Standalone React</h1>
+          <div className="js-div">
             <p>Learn React </p>
+            <div className="react">
+              <img src={ReactImg} alt="react-img"/>
+            </div>
             at
-            <pre className="apps">src/start.tsx</pre>
+            <pre className="apps">src/Start.jsx</pre>
           </div>
           <div className="buttons">
             <button onClick={() => handleCounterChange(1)}>+1</button>
@@ -50,5 +53,5 @@ export default function React() {
         </div>
       </div>
     </div>
-  );
+  )
 }

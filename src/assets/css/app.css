@@ -1,0 +1,183 @@
+h1 {
+    font-weight: 500;
+    color: white;
+    font-size: 3vw;
+}
+
+.js-div {
+    display: flex;
+    color: white;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.js-div p {
+    margin: 0;
+}
+
+.js {
+    width: 1.5rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    will-change: filter;
+    transition: filter 300ms;
+}
+
+.react:hover {
+    filter: drop-shadow(0 0 2em #80c0d2aa);
+}
+
+.webpack:hover {
+    filter: drop-shadow(0 0 2em #e1eef2aa);
+}
+
+.react-div {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.react-div .logo {
+    width: 8rem;
+    height: auto;
+}
+
+.apps,button {
+    padding: 5px 10px;
+    background-color: #444654;
+    border-radius: 5px;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 0.5rem;
+}
+
+.buttons :nth-of-type(1),
+.buttons :nth-of-type(3){
+    cursor: pointer;
+}
+
+.buttons :nth-of-type(1):hover,
+.buttons :nth-of-type(3):hover{
+    background-color: #67686f;
+}
+
+button {
+    border: none;
+    color: white;
+}
+
+.yellow {
+    color: rgb(255, 255, 1);
+}
+
+.red {
+    color: rgb(253, 53, 53)
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 1%;
+    left: 1%;
+    right: 1%;
+    color: white;
+}
+
+.footer .github {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer .github p {
+    margin: 0; 
+}
+
+.footer .git {
+    filter: drop-shadow(0 0 2em #fcfcfc);
+}
+
+.footer .gitlogo {
+    width: 6rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.footer .gitlogo img {
+    width: 100%;
+    height: auto; 
+}
+
+div.react {
+    width: 2rem;
+}
+
+.version {
+    font-weight: 400;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .react {
+        animation: React-Spins infinite 10s linear;
+    }
+}
+
+@keyframes React-Spins {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 1084px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .react-div {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .buttons {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 730px) {
+
+    .react-div h1 {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 630px) {
+    .react-div {
+        flex-direction: column;
+        transition: all .5s;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 498px) {
+    .buttons {
+        justify-content: center;
+        align-items: center;
+    }
+}

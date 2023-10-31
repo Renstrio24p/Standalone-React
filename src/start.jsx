@@ -1,7 +1,8 @@
-const ReactApp = React.lazy(()=>import('./components/react'))
+import { lazy } from 'react'
+const ReactApp = lazy(()=>import('./components/ReactApp'))
+import './assets/css/app.css'
 
 export default function Start(){
-
     return (
         <div>
             <ReactApp />

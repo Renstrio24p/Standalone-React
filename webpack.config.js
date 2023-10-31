@@ -3,13 +3,14 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const path = require('path');
 const webpack = require('webpack');
+const TerserPlugin = require('terser-webpack-plugin');
 
-module.exports = (env, argv) => {
+
+
+module.exports = (argv) => {
   const isProduction = argv.mode === 'production';
-  const startTime = Date.now();
-
   const devServerOptions = {
-    port: '4500',
+    port: 4500,
     proxy: {
       '/api': {
         target: 'http://localhost:8800',
@@ -19,7 +20,6 @@ module.exports = (env, argv) => {
     },
     static: {
       directory: path.join(__dirname, 'src'),
-      // publicPath: '/'
     },
     open: true,
     hot: !isProduction,
@@ -27,21 +27,13 @@ module.exports = (env, argv) => {
     historyApiFallback: true,
   };
 
-  if (isProduction) {
-    devServerOptions.client = {
-      logging: 'none',
-    };
-  }
-
-
   return {
     mode: isProduction ? 'production' : 'development',
     entry: './src/index.jsx',
     output: {
-      path: path.resolve(__dirname, './dist'),
-      filename: 'assets/[name].[contenthash].js',
-      chunkFilename: 'assets/[name].[contenthash].js',
-      // publicPath: '/',
+      path: path.resolve(__dirname, 'dist'),
+      filename: isProduction ? 'assets/[name].[contenthash].js' : 'assets/[name].js',
+      chunkFilename: isProduction ? 'assets/[name].[contenthash].js' : 'assets/[name].js',
     },
     target: 'web',
     devServer: devServerOptions,
@@ -50,26 +42,22 @@ module.exports = (env, argv) => {
     },
     module: {
       rules: [
+        
+        // JavaScript rule
         {
-          test: /node_modules/,
+          test: /\.(js|jsx)$/,
+          exclude: /node_modules/,
           use: {
             loader: 'esbuild-loader',
             options: {
-              target: 'esnext',
-            },
-          },
-        },
-        {
-          test: /\.(jsx)?$/,
-          use: {
-            loader: 'esbuild-loader',
-            options: {
-              loader: 'jsx',
+              loader: 'jsx', // Specify the loader for JavaScript
               target: 'es2015',
-              minify: true,
+              // Minify in production
+              minify: isProduction,
             },
           },
         },
+        // CSS rule
         {
           test: /\.(c|sa|sc)ss$/,
           exclude: /\.module\.(c|sa|sc)ss$/,
@@ -77,16 +65,9 @@ module.exports = (env, argv) => {
             'style-loader',
             'css-loader',
             'sass-loader',
-            {
-              loader: 'esbuild-loader',
-              options: {
-                loader:'css',
-                minify: true,
-                target: 'es2015',
-              },
-            },
           ],
         },
+        // CSS modules rule
         {
           test: /\.module\.(c|sa|sc)ss$/,
           use: [
@@ -98,16 +79,9 @@ module.exports = (env, argv) => {
               },
             },
             'sass-loader',
-            {
-              loader: 'esbuild-loader',
-              options: {
-                loader: 'css',
-                minify: true,
-                target: 'es2015',
-              },
-            },
           ],
         },
+        // Image assets rule
         {
           test: /\.(png|jpe?g|gif|svg|webp)$/i,
           type: 'asset/resource',
@@ -115,6 +89,7 @@ module.exports = (env, argv) => {
             filename: 'images/[name].[contenthash][ext]',
           },
         },
+        // Video assets rule
         {
           test: /\.(mp4|webm|ogg|ogv)$/i,
           type: 'asset/resource',
@@ -126,7 +101,7 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: path.join(__dirname, './', 'index.html'),
+        template: 'index.html',
       }),
       new webpack.ProvidePlugin({
         React: 'react',
@@ -148,9 +123,18 @@ module.exports = (env, argv) => {
     ],
     optimization: {
       minimize: isProduction,
+      minimizer: [
+        new TerserPlugin({
+          terserOptions: {
+            compress: {
+              drop_console: isProduction,
+            },
+          },
+        }),
+      ],
       splitChunks: {
-        chunks: 'async',
-        minSize: 244 * 1024, // 244 KiB
+        chunks: 'all', // Split all chunks, including async and initial
+        minSize: 0, // Always split, no matter the size
         cacheGroups: {
           defaultVendors: {
             test: /[\\/]node_modules[\\/]/,
@@ -165,12 +149,15 @@ module.exports = (env, argv) => {
       },
     },
     performance: {
-      maxAssetSize: 244000,
-      maxEntrypointSize: 244000,
+      hints: isProduction ? 'warning' : false,
+      maxAssetSize: 713 * 1024, // Adjust this limit as needed
+      maxEntrypointSize: 713 * 1024, // Adjust this limit as needed
     },
     cache: {
       type: 'filesystem',
     },
     stats: 'errors-warnings',
+    // Add source maps for better debugging in development mode
+    devtool: isProduction ? 'source-map' : 'eval-source-map',
   };
 };
