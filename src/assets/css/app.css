@@ -4,7 +4,7 @@ h1 {
     font-size: 3vw;
 }
 
-.js-div {
+.react-div {
     display: flex;
     color: white;
     align-items: center;
@@ -12,12 +12,12 @@ h1 {
     text-align: center;
 }
 
-.js-div p {
+.react-div p {
     margin: 0;
 }
 
-.js {
-    width: 1.5rem;
+.react {
+    width: 8rem;
 }
 
 img {
@@ -40,6 +40,12 @@ img {
     gap: 1rem;
     align-items: center;
     justify-content: center;
+}
+
+.react-div2 {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
 }
 
 .react-div .logo {

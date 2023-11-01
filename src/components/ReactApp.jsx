@@ -23,7 +23,7 @@ export default function ReactApp() {
         </div>
         <div>
           <h1>Standalone React</h1>
-          <div className="js-div">
+          <div className="react-div2">
             <p>Learn React </p>
             <div className="react">
               <img src={ReactImg} alt="react-img"/>
