@@ -5,10 +5,19 @@ const path = require('path');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 
-
+const isReactRouterDomUsed = (() => {
+  try {
+    require.resolve('react-router-dom');
+    return true;
+  } catch (error) {
+    return false;
+  }
+})();
 
 module.exports = (argv) => {
   const isProduction = argv.mode === 'production';
+  const publicPath = isReactRouterDomUsed ? '/' : null;
+
   const devServerOptions = {
     port: 4500,
     proxy: {
@@ -20,6 +29,7 @@ module.exports = (argv) => {
     },
     static: {
       directory: path.join(__dirname, 'src'),
+      publicPath,
     },
     open: true,
     hot: !isProduction,
@@ -34,6 +44,7 @@ module.exports = (argv) => {
       path: path.resolve(__dirname, 'dist'),
       filename: isProduction ? 'assets/[name].[contenthash].js' : 'assets/[name].js',
       chunkFilename: isProduction ? 'assets/[name].[contenthash].js' : 'assets/[name].js',
+      publicPath,
     },
     target: 'web',
     devServer: devServerOptions,
@@ -42,7 +53,6 @@ module.exports = (argv) => {
     },
     module: {
       rules: [
-        
         // JavaScript rule
         {
           test: /\.(js|jsx)$/,
@@ -50,9 +60,8 @@ module.exports = (argv) => {
           use: {
             loader: 'esbuild-loader',
             options: {
-              loader: 'jsx', // Specify the loader for JavaScript
+              loader: 'jsx',
               target: 'es2015',
-              // Minify in production
               minify: isProduction,
             },
           },
@@ -61,11 +70,7 @@ module.exports = (argv) => {
         {
           test: /\.(c|sa|sc)ss$/,
           exclude: /\.module\.(c|sa|sc)ss$/,
-          use: [
-            'style-loader',
-            'css-loader',
-            'sass-loader',
-          ],
+          use: ['style-loader', 'css-loader', 'sass-loader'],
         },
         // CSS modules rule
         {
@@ -97,6 +102,7 @@ module.exports = (argv) => {
             filename: 'videos/[name].[contenthash][ext]',
           },
         },
+        // ... (add more rules as needed)
       ],
     },
     plugins: [
@@ -133,8 +139,8 @@ module.exports = (argv) => {
         }),
       ],
       splitChunks: {
-        chunks: 'all', // Split all chunks, including async and initial
-        minSize: 0, // Always split, no matter the size
+        chunks: 'all',
+        minSize: 0,
         cacheGroups: {
           defaultVendors: {
             test: /[\\/]node_modules[\\/]/,
@@ -150,14 +156,13 @@ module.exports = (argv) => {
     },
     performance: {
       hints: isProduction ? 'warning' : false,
-      maxAssetSize: 713 * 1024, // Adjust this limit as needed
-      maxEntrypointSize: 713 * 1024, // Adjust this limit as needed
+      maxAssetSize: 713 * 1024,
+      maxEntrypointSize: 713 * 1024,
     },
     cache: {
       type: 'filesystem',
     },
     stats: 'errors-warnings',
-    // Add source maps for better debugging in development mode
     devtool: isProduction ? 'source-map' : 'eval-source-map',
   };
 };
