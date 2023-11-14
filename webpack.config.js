@@ -16,7 +16,7 @@ const isReactRouterDomUsed = (() => {
 
 module.exports = (argv) => {
   const isProduction = argv.mode === 'production';
-  const publicPath = isReactRouterDomUsed ? '/' : null;
+  const publicPath = isReactRouterDomUsed ? '/' : '';
 
   const devServerOptions = {
     port: 4500,
